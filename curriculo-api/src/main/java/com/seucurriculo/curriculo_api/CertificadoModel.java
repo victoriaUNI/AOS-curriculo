@@ -1,3 +1,9 @@
+package com.seucurriculo.curriculo_api;
+
+import jakarta.persistence.*;
+import lombok.*;
+import java.time.LocalDate;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -7,13 +13,12 @@ public class CertificadoModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String nome;
     private String instituicao;
-    private String cert;
-    private LocalDate dataInicio;
-    private LocalDate dataFim;
-    
+    private LocalDate dataConclusao;
+    private String urlCertificado;
 
     @ManyToOne
     @JoinColumn(name = "curriculo_id")
-    private Curriculo curriculo;
+    private CurriculoModel curriculo;
 }

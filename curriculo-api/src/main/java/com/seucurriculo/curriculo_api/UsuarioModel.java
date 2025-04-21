@@ -1,3 +1,10 @@
+package com.seucurriculo.curriculo_api;
+
+import jakarta.persistence.*;
+import lombok.*;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -14,5 +21,5 @@ public class UsuarioModel {
     private String fotoPerfil;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Curriculo> curriculos = new ArrayList<>();
+    private List<CurriculoModel> curriculos = new ArrayList<>();
 }

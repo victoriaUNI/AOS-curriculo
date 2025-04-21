@@ -7,15 +7,16 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class HabilidadeModel {
+public class IdiomaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
+    private String idioma;
     private String nivel;
 
     @ManyToOne
     @JoinColumn(name = "curriculo_id")
     private CurriculoModel curriculo;
 }
+

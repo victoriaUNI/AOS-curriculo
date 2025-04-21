@@ -1,21 +1,29 @@
+package com.seucurriculo.curriculo_api;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class UsuarioService {
-    private final UsuarioRepository usuarioRepository;
+    private UsuarioRepository repository;
 
-    public Usuario salvar(UsuarioModel usuario) {
-        return usuarioRepository.save(usuario);
+    public UsuarioModel salvar(UsuarioModel usuario) {
+        return repository.save(usuario);
     }
 
-    public List<UsuarioModel> listarTodos() {
-        return usuarioRepository.findAll();
+    public List<UsuarioModel> listar() {
+        return repository.findAll();
     }
 
     public Optional<UsuarioModel> buscarPorId(Long id) {
-        return usuarioRepository.findById(id);
+        return repository.findById(id);
     }
 
     public void deletar(Long id) {
-        usuarioRepository.deleteById(id);
+        repository.deleteById(id);
     }
 }

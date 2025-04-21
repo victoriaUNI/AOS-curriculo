@@ -8,18 +8,18 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class CurriculoService {
-    private CurriculoRepository repository;
+public class FormacaoAcademicaService {
+    private FormacaoAcademicaRepository repository;
 
-    public CurriculoModel salvar(CurriculoModel curriculo) {
-        return repository.save(curriculo);
+    public FormacaoAcademicaModel salvar(FormacaoAcademicaModel formacaoAcademica) {
+        return repository.save(formacaoAcademica);
     }
 
-    public List<CurriculoModel> listar() {
+    public List<FormacaoAcademicaModel> listar() {
         return repository.findAll();
     }
 
-    public Optional<CurriculoModel> buscarPorId(Long id) {
+    public Optional<FormacaoAcademicaModel> buscarPorId(Long id) {
         return repository.findById(id);
     }
 
@@ -27,3 +27,4 @@ public class CurriculoService {
         repository.deleteById(id);
     }
 }
+

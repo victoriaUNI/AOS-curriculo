@@ -1,3 +1,11 @@
+package com.seucurriculo.curriculo_api;
+
+import jakarta.persistence.*;
+import lombok.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -10,25 +18,25 @@ public class CurriculoModel {
     private String titulo;
     private String descricao;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
-
     private LocalDate dataCriacao;
     private LocalDate dataAtualizacao;
 
-    @OneToMany(mappedBy = "curriculo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ExperienciaProfissional> experiencias = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private UsuarioModel usuario;
 
     @OneToMany(mappedBy = "curriculo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<FormacaoAcademica> formacoes = new ArrayList<>();
+    private List<ExperienciaProfissionalModel> experiencias = new ArrayList<>();
 
     @OneToMany(mappedBy = "curriculo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Habilidade> habilidades = new ArrayList<>();
+    private List<FormacaoAcademicaModel> formacoes = new ArrayList<>();
 
     @OneToMany(mappedBy = "curriculo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Idioma> idiomas = new ArrayList<>();
+    private List<HabilidadeModel> habilidades = new ArrayList<>();
 
     @OneToMany(mappedBy = "curriculo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Certificado> certificados = new ArrayList<>();
+    private List<IdiomaModel> idiomas = new ArrayList<>();
+
+    @OneToMany(mappedBy = "curriculo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CertificadoModel> certificados = new ArrayList<>();
 }
