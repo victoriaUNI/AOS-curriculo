@@ -1,0 +1,1 @@
+# AOS-curriculo
